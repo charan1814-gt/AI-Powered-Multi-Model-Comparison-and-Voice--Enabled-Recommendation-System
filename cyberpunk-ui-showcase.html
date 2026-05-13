@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberpunk UI Showcase</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .showcase-section {
+            margin: var(--spacing-xl) 0;
+            padding: var(--spacing-lg);
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 0 30px rgba(255, 0, 110, 0.2);
+        }
+
+        .showcase-title {
+            color: var(--primary-color);
+            text-shadow: 0 0 10px rgba(255, 0, 110, 0.3);
+            margin-bottom: var(--spacing-md);
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+        }
+
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .color-box {
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            text-align: center;
+            font-weight: 600;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .color-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .color-secondary {
+            background: var(--secondary-color);
+            color: var(--dark-bg);
+        }
+
+        .color-accent {
+            background: var(--accent-color);
+            color: var(--dark-bg);
+        }
+
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .demo-box {
+            padding: var(--spacing-md);
+            background: var(--dark-bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-md);
+            text-align: center;
+        }
+
+        .btn-demo {
+            margin: var(--spacing-xs);
+        }
+
+        .glow-text {
+            color: var(--primary-color);
+            text-shadow: 0 0 10px rgba(255, 0, 110, 0.4);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo" style="text-align: center;">✨ CYBERPUNK UI SHOWCASE ✨</h1>
+            <p class="tagline" style="text-align: center;">Modern Dark Theme with Neon Accents</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <!-- Color Palette Section -->
+            <section class="showcase-section">
+                <h2 class="showcase-title">🎨 Color Palette</h2>
+                <div class="color-palette">
+                    <div class="color-box color-primary">
+                        <div>Primary Pink</div>
+                        <div style="font-size: 0.8rem; opacity: 0.8;">#ff006e</div>
+                    </div>
+                    <div class="color-box color-secondary">
+                        <div>Cyan Accent</div>
+                        <div style="font-size: 0.8rem; opacity: 0.8;">#00d9ff</div>
+                    </div>
+                    <div class="color-box color-accent">
+                        <div>Yellow Accent</div>
+                        <div style="font-size: 0.8rem; opacity: 0.8;">#ffde00</div>
+                    </div>
+                    <div class="color-box" style="background: var(--dark-bg); border: 2px solid var(--border-color);">
+                        <div style="color: var(--text-primary);">Dark Background</div>
+                        <div style="font-size: 0.8rem; color: var(--text-secondary);">#0a0e27</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Typography Section -->
+            <section class="showcase-section">
+                <h2 class="showcase-title">📝 Typography & Text Effects</h2>
+                <div style="margin-top: var(--spacing-md);">
+                    <h3 class="glow-text">Glowing Text Effect</h3>
+                    <p style="color: var(--text-secondary); margin-top: var(--spacing-sm);">
+                        Text with neon glow for emphasis and visual hierarchy
+                    </p>
+                    <div style="margin-top: var(--spacing-md);">
+                        <p style="font-size: 1.5rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-primary);">Spaced Typography</p>
+                        <p style="color: var(--text-secondary);">Enhanced letter-spacing for modern cyberpunk aesthetic</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Buttons Section -->
+            <section class="showcase-section">
+                <h2 class="showcase-title">🔘 Button Components</h2>
+                <div class="component-grid">
+                    <div class="demo-box">
+                        <h4 style="color: var(--primary-color); margin-bottom: var(--spacing-md);">Primary Buttons</h4>
+                        <button class="btn btn-primary btn-demo">Primary Button</button>
+                        <button class="btn btn-primary btn-demo" disabled>Disabled</button>
+                    </div>
+                    <div class="demo-box">
+                        <h4 style="color: var(--secondary-color); margin-bottom: var(--spacing-md);">Secondary Buttons</h4>
+                        <button class="btn btn-secondary btn-demo">Secondary Button</button>
+                        <button class="btn btn-secondary btn-demo" disabled>Disabled</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cards Section -->
+            <section class="showcase-section">
+                <h2 class="showcase-title">🎴 Card Components</h2>
+                <div class="component-grid">
+                    <div style="background: var(--card-bg); border: 2px solid var(--border-color); padding: var(--spacing-md); border-radius: var(--radius-md); box-shadow: 0 0 20px rgba(255, 0, 110, 0.15);">
+                        <h4 style="color: var(--primary-color); margin-bottom: var(--spacing-sm);">Card with Pink Border</h4>
+                        <p style="color: var(--text-secondary);">Bordered card with subtle glow effect</p>
+                    </div>
+                    <div style="background: var(--dark-bg-secondary); border: 2px solid var(--secondary-color); padding: var(--spacing-md); border-radius: var(--radius-md); box-shadow: 0 0 20px rgba(0, 217, 255, 0.15);">
+                        <h4 style="color: var(--secondary-color); margin-bottom: var(--spacing-sm);">Card with Cyan Border</h4>
+                        <p style="color: var(--text-secondary);">Hover over cards for enhanced effects</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Messages Section -->
+            <section class="showcase-section">
+                <h2 class="showcase-title">💬 Message Components</h2>
+                <div class="error-message">
+                    <strong>❌ Error Message:</strong> This demonstrates the error message styling with red neon border and glow effect.
+                </div>
+                <div class="success-message">
+                    <strong>✅ Success Message:</strong> This demonstrates the success message styling with green neon border and glow effect.
+                </div>
+                <div class="warning-message">
+                    <strong>⚠️ Warning Message:</strong> This demonstrates the warning message styling with yellow neon border and glow effect.
+                </div>
+            </section>
+
+            <!-- Section Headers -->
+            <section class="showcase-section">
+                <h2 class="showcase-title">📋 Section Headers with Dividers</h2>
+                <div class="section-header" style="margin-top: var(--spacing-md);">
+                    <h2>Section Title</h2>
+                    <p>This section header has a neon divider line with gradient effect</p>
+                </div>
+            </section>
+
+            <!-- Input Fields -->
+            <section class="showcase-section">
+                <h2 class="showcase-title">✍️ Input Fields</h2>
+                <textarea 
+                    class="prompt-input" 
+                    placeholder="Try typing here to see the cyan glow effect on focus..."
+                    rows="4"
+                    style="margin-bottom: var(--spacing-md);">
+                </textarea>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">Input fields have pink borders by default and cyan glow on focus</p>
+            </section>
+
+            <!-- Features List -->
+            <section class="showcase-section">
+                <h2 class="showcase-title">⭐ Key Design Features</h2>
+                <div style="margin-top: var(--spacing-md);">
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--border-color); color: var(--text-primary);">
+                            <span style="color: var(--primary-color); margin-right: var(--spacing-sm);">▪</span>
+                            Dark background (#0a0e27) with subtle gradient overlays
+                        </li>
+                        <li style="padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--border-color); color: var(--text-primary);">
+                            <span style="color: var(--secondary-color); margin-right: var(--spacing-sm);">▪</span>
+                            Neon pink (#ff006e) for primary elements and borders
+                        </li>
+                        <li style="padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--border-color); color: var(--text-primary);">
+                            <span style="color: var(--accent-color); margin-right: var(--spacing-sm);">▪</span>
+                            Cyan (#00d9ff) and yellow (#ffde00) accent colors
+                        </li>
+                        <li style="padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--border-color); color: var(--text-primary);">
+                            <span style="color: var(--primary-color); margin-right: var(--spacing-sm);">▪</span>
+                            Glowing text-shadow effects for depth and emphasis
+                        </li>
+                        <li style="padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--border-color); color: var(--text-primary);">
+                            <span style="color: var(--secondary-color); margin-right: var(--spacing-sm);">▪</span>
+                            Box-shadow with neon colors for hover effects
+                        </li>
+                        <li style="padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--border-color); color: var(--text-primary);">
+                            <span style="color: var(--accent-color); margin-right: var(--spacing-sm);">▪</span>
+                            Smooth transitions and hover animations
+                        </li>
+                        <li style="padding: var(--spacing-sm) 0; color: var(--text-primary);">
+                            <span style="color: var(--primary-color); margin-right: var(--spacing-sm);">▪</span>
+                            Letter-spacing and text-transform for premium feel
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Code Examples -->
+            <section class="showcase-section">
+                <h2 class="showcase-title">💻 Usage in Your Project</h2>
+                <div style="background: var(--dark-bg); padding: var(--spacing-md); border-radius: var(--radius-md); overflow-x: auto; margin-top: var(--spacing-md);">
+                    <pre style="color: var(--secondary-color); margin: 0; font-family: 'Courier New', monospace; white-space: pre-wrap;">/* Add these classes to your HTML */
+
+/* Glowing headers */
+&lt;h1 style="color: var(--primary-color); text-shadow: 0 0 20px rgba(255, 0, 110, 0.3);"&gt;Title&lt;/h1&gt;
+
+/* Bordered card with glow */
+&lt;div style="border: 2px solid var(--border-color); box-shadow: 0 0 20px rgba(255, 0, 110, 0.15);"&gt;Content&lt;/div&gt;
+
+/* Cyan hover effect */
+&lt;div style="border-color: var(--secondary-color); box-shadow: 0 0 30px rgba(0, 217, 255, 0.3);"&gt;Hover&lt;/div&gt;</pre>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Cyberpunk UI Theme - Built with Neon Aesthetics ✨</p>
+            <p style="font-size: 0.9rem; opacity: 0.7;">Dark mode • Neon accents • Glowing effects</p>
+        </div>
+    </footer>
+</body>
+</html>

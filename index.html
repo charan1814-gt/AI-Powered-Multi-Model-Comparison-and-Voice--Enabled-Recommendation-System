@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Comparison Tool - Compare Grok, ChatGPT, Llama & DeepSeek</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Force dark theme */
+        html,
+        body {
+            background-color: #0a0e27 !important;
+            color: #ffffff !important;
+        }
+    </style>
+</head>
+
+<body style="background-color: #0a0e27 !important; color: #ffffff !important;">
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Aether AI</h1>
+            <div class="header-actions">
+                <button class="btn btn-secondary btn-sm">Analyze</button>
+                <div class="sound-toggle">
+                    <span class="sound-label">Audio</span>
+                    <button id="soundToggle" class="sound-button" aria-pressed="true">On</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+
+            <!-- Prompt Input Section -->
+            <section class="prompt-section">
+                <div class="section-header">
+                    <p class="protocol-tag">INTELLIGENCE PROTOCOL V4.2</p>
+                    <h2>COMPARE INTELLIGENCE AT SCALE</h2>
+                    <p>Aether provides a technical readout of neural performance across global LLM architectures.
+                        Evaluate precision, latency, and reasoning depth in a unified spectral interface.</p>
+                </div>
+
+                <div class="prompt-container">
+                    <div class="prompt-header-row">
+                        <span class="prompt-title">RUN ALL PROMPTS AT SCALE</span>
+                        <div class="voice-controls-compact">
+                            <button id="voiceStartBtn" class="voice-btn voice-btn-mic"
+                                title="Click to start recording (with noise suppression)">
+                                <svg class="voice-icon" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12 14C13.66 14 15 12.66 15 11V5C15 3.34 13.66 2 12 2C10.34 2 9 3.34 9 5V11C9 12.66 10.34 14 12 14Z"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M19 11C19 14.866 15.866 18 12 18C8.13401 18 5 14.866 5 11"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M12 18V22" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M8 22H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                            <button id="voiceSpeakBtn" class="voice-btn voice-btn-speaker" title="Read last response">
+                                <svg class="voice-icon" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11 5L6 9H2V15H6L11 19V5Z" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path
+                                        d="M15.54 8.46C16.4774 9.39764 17.0039 10.6692 17.0039 11.995C17.0039 13.3208 16.4774 14.5924 15.54 15.53"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M18.07 5.93C19.9447 7.80528 20.9979 10.3489 20.9979 13C20.9979 15.6511 19.9447 18.1947 18.07 20.07"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                            <div id="voiceStatus" class="voice-status-compact"></div>
+                        </div>
+                    </div>
+
+                    <textarea id="promptInput" class="prompt-input"
+                        placeholder="Type your question or prompt here... (e.g., 'Explain quantum computing in simple terms' or 'What are the latest trends in AI?')"
+                        rows="5"></textarea>
+
+                    <div class="prompt-actions">
+                        <button id="analyzePromptBtn" class="btn btn-secondary">
+                            Analyze Quality
+                        </button>
+                        <button id="compareBtn" class="btn btn-primary">
+                            Execute Compare
+                        </button>
+                    </div>
+
+                    <div class="model-selector-row">
+                        <label class="voice-label" for="grokModelSelect">Grok model</label>
+                        <select id="grokModelSelect" class="voice-select">
+                            <option value="x-ai/grok-3-mini">x-ai/grok-3-mini</option>
+                            <option value="x-ai/grok-3-beta">x-ai/grok-3-beta</option>
+                            <option value="x-ai/grok-4.1-fast">x-ai/grok-4.1-fast</option>
+                            <option value="grok-beta">grok-beta</option>
+                            <option value="grok-2">grok-2</option>
+                            <option value="grok-2-1212">grok-2-1212</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <!-- Prompt Quality Analysis -->
+                <div id="promptAnalysis" class="prompt-analysis hidden">
+                    <h3> Prompt Quality Analysis</h3>
+                    <div id="promptAnalysisContent"></div>
+                </div>
+
+                <!-- Loading Indicator -->
+                <div id="loadingIndicator" class="loading-indicator hidden">
+                    <div class="spinner"></div>
+                    <p>Fetching responses from all AI tools and analyzing results...</p>
+                </div>
+            </section>
+
+            <!-- Prompt Improvement Guide -->
+            <section class="guide-section">
+                <h3> Prompt Crafting Guide</h3>
+                <div class="guide-cards">
+                    <div class="guide-card">
+                        <div class="guide-icon"></div>
+                        <h4>Be Specific</h4>
+                        <p>Provide clear context and details about what you want</p>
+                    </div>
+                    <div class="guide-card">
+                        <div class="guide-icon"></div>
+                        <h4>Define Goals</h4>
+                        <p>State the desired outcome or format of the response</p>
+                    </div>
+                    <div class="guide-card">
+                        <div class="guide-icon"></div>
+                        <h4>Add Context</h4>
+                        <p>Include relevant background information</p>
+                    </div>
+                    <div class="guide-card">
+                        <div class="guide-icon"></div>
+                        <h4>Use Examples</h4>
+                        <p>Provide examples to clarify your expectations</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AI Responses Section -->
+            <section id="responsesSection" class="responses-section hidden">
+                <div class="section-header-left section-header">
+                    <h2>Comparative Telemetry</h2>
+                    <p>Real-time inference feedback</p>
+                </div>
+
+                <div class="responses-grid">
+                    <!-- Grok Response -->
+                    <div class="response-card" data-ai="grok">
+                        <div class="response-header">
+                            <h3> Grok</h3>
+                            <span class="response-time" id="grokTime">--</span>
+                        </div>
+                        <div class="response-hint">Tap to expand</div>
+                        <div class="response-content" id="grokResponse">
+                            <div class="loading-placeholder">Waiting for response...</div>
+                        </div>
+                    </div>
+
+                    <!-- ChatGPT Response -->
+                    <div class="response-card" data-ai="chatgpt">
+                        <div class="response-header">
+                            <h3> ChatGPT</h3>
+                            <span class="response-time" id="chatgptTime">--</span>
+                        </div>
+                        <div class="response-hint">Tap to expand</div>
+                        <div class="response-content" id="chatgptResponse">
+                            <div class="loading-placeholder">Waiting for response...</div>
+                        </div>
+                    </div>
+
+                    <!-- Llama Response -->
+                    <div class="response-card" data-ai="llama">
+                        <div class="response-header">
+                            <h3> Llama</h3>
+                            <span class="response-time" id="llamaTime">--</span>
+                        </div>
+                        <div class="response-hint">Tap to expand</div>
+                        <div class="response-content" id="llamaResponse">
+                            <div class="loading-placeholder">Waiting for response...</div>
+                        </div>
+                    </div>
+
+                    <!-- DeepSeek Response -->
+                    <div class="response-card" data-ai="deepseek">
+                        <div class="response-header">
+                            <h3> DeepSeek</h3>
+                            <span class="response-time" id="deepseekTime">--</span>
+                        </div>
+                        <div class="response-hint">Tap to expand</div>
+                        <div class="response-content" id="deepseekResponse">
+                            <div class="loading-placeholder">Waiting for response...</div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </section>
+
+            <!-- Metrics Analysis Section -->
+            <section id="metricsSection" class="metrics-section hidden">
+                <div class="section-header">
+                    <h2> Weighted Evaluation Metrics</h2>
+                    <p>Scoring by accuracy, relevance, clarity, quality, and response time</p>
+                </div>
+
+                <!-- Winner Announcement -->
+                <div id="winnerCard" class="winner-card">
+                    <h3> Overall Winner</h3>
+                    <div id="winnerContent"></div>
+                </div>
+
+                <!-- Metrics Grid -->
+                <div class="metrics-grid" id="metricsGrid">
+                    <!-- Metrics will be dynamically inserted here -->
+                </div>
+
+                <!-- Detailed Metrics Table -->
+                <div class="metrics-table-container">
+                    <h3>Detailed Metrics Comparison</h3>
+                    <table class="metrics-table" id="metricsTable">
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Grok</th>
+                                <th>ChatGPT</th>
+                                <th>Llama</th>
+                                <th>DeepSeek</th>
+                            </tr>
+                        </thead>
+                        <tbody id="metricsTableBody">
+                            <!-- Table rows will be dynamically inserted -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="dashboardSection" class="metrics-section hidden">
+                <div class="section-header">
+                    <h2> Real-Time Performance Dashboard</h2>
+                    <p>Live model ranking and metric comparison for each prompt</p>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <h4> Weighted Scoring Controls</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+                            Tune metric importance and re-rank models live.
+                        </p>
+                        <div class="weight-controls" id="weightControls">
+                            <div class="weight-row">
+                                <label for="weightAccuracy">Accuracy</label>
+                                <input id="weightAccuracy" type="range" min="0" max="100" step="1" value="35">
+                                <span id="weightAccuracyValue" class="weight-value">35%</span>
+                            </div>
+                            <div class="weight-row">
+                                <label for="weightComprehensiveness">Comprehensiveness</label>
+                                <input id="weightComprehensiveness" type="range" min="0" max="100" step="1" value="25">
+                                <span id="weightComprehensivenessValue" class="weight-value">25%</span>
+                            </div>
+                            <div class="weight-row">
+                                <label for="weightPrecisionRecall">Precision & Recall</label>
+                                <input id="weightPrecisionRecall" type="range" min="0" max="100" step="1" value="20">
+                                <span id="weightPrecisionRecallValue" class="weight-value">20%</span>
+                            </div>
+                            <div class="weight-row">
+                                <label for="weightContext">Context Awareness</label>
+                                <input id="weightContext" type="range" min="0" max="100" step="1" value="20">
+                                <span id="weightContextValue" class="weight-value">20%</span>
+                            </div>
+                        </div>
+                        <div class="weight-actions">
+                            <button id="resetWeightsBtn" class="btn btn-secondary" type="button">Reset
+                                Defaults</button>
+                            <span id="weightStatus" class="weight-status">Using default weights</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <h4> Weighted Ranking</h4>
+                        <div id="rankingBars" class="dashboard-bars"></div>
+                    </div>
+                    <div class="metric-card">
+                        <h4> Core Metrics Overview</h4>
+                        <canvas id="metricsCanvas" class="dashboard-canvas" width="640" height="320"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recommendations Section -->
+            <section id="recommendationsSection" class="recommendations-section hidden">
+                <div class="section-header">
+                    <h2> Recommendations & Insights</h2>
+                </div>
+                <div id="recommendationsContent" class="recommendations-content">
+                    <!-- Recommendations will be dynamically inserted -->
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 AI Comparison Tool. Analyze. Compare. Decide.</p>
+        </div>
+    </footer>
+
+    <!-- Focused Response Overlay -->
+    <div id="responseOverlay" class="response-overlay hidden" aria-hidden="true">
+        <div class="response-overlay-backdrop" data-overlay-close="true"></div>
+        <div class="response-overlay-panel" role="dialog" aria-modal="true">
+            <div class="response-overlay-header">
+                <div id="overlayTitle" class="overlay-title"></div>
+                <button id="overlayCloseBtn" class="overlay-close" aria-label="Close">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2.5" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div id="overlayMeta" class="overlay-meta"></div>
+            <div id="overlayContent" class="overlay-content"></div>
+        </div>
+    </div>
+
+    <!-- UI Sound Asset -->
+    <audio id="uiTapSound" src="assets/sounds/sou.aac" preload="auto"></audio>
+
+    <!-- Scripts -->
+    <script src="cyberpunk-ui-utils.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
