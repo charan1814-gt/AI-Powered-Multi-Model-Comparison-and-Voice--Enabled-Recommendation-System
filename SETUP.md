@@ -29,7 +29,7 @@ This will install all required packages:
 **OpenAI (ChatGPT):**
 - Sign up at: https://platform.openai.com/
 - Get API key from: https://platform.openai.com/api-keys
-- Add to .env: `OPENAI_API_KEY=sk-...`
+- Add to .env: `OPENAI_API_KEY=<YOUR_OPENAI_API_KEY>`
 
 **Google Gemini:**
 - Sign up at: https://makersuite.google.com/app/apikey

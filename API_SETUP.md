@@ -22,7 +22,7 @@ This application requires API keys from four AI service providers. Follow the st
 
 ### Add to .env
 ```
-OPENAI_API_KEY=sk-proj-xxxxxxxxxxxxxxxxxxxxx
+OPENAI_API_KEY=<YOUR_OPENAI_API_KEY_HERE>
 ```
 
 ### Pricing
@@ -96,7 +96,7 @@ REPLICATE_API_TOKEN=r8-xxxxxxxxxxxxxxxxxxxxxxx
 
 ### Add to .env
 ```
-DEEPSEEK_API_KEY=sk-deepseek-xxxxxxxxxxxxxxxxxxxxx
+DEEPSEEK_API_KEY=<YOUR_DEEPSEEK_API_KEY_HERE>
 ```
 
 ### Pricing
@@ -110,10 +110,10 @@ After obtaining all API keys, your `.env` file should look like this:
 
 ```env
 # API Keys for AI Services
-OPENAI_API_KEY=sk-proj-xxxxxxxxxxxxxxxxxxxxx
-GEMINI_API_KEY=AIzaSyxxxxxxxxxxxxxxxxxxxxx
-REPLICATE_API_TOKEN=r8-xxxxxxxxxxxxxxxxxxxxxxx
-DEEPSEEK_API_KEY=sk-deepseek-xxxxxxxxxxxxxxxxxxxxx
+OPENAI_API_KEY=<YOUR_OPENAI_API_KEY_HERE>
+GEMINI_API_KEY=<YOUR_GEMINI_API_KEY_HERE>
+REPLICATE_API_TOKEN=<YOUR_REPLICATE_API_TOKEN_HERE>
+DEEPSEEK_API_KEY=<YOUR_DEEPSEEK_API_KEY_HERE>
 
 # Server Configuration
 PORT=3000
